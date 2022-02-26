@@ -1,4 +1,4 @@
-token: "xxxxxxxxxxxxxxxx"    # Lichess OAuth2 Token.
+token: "lip_OIItTUnnIiMZ5ud1DBZH"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
@@ -87,7 +87,7 @@ correspondence:
 challenge:                   # Incoming challenges.
   concurrency: 1             # Number of games to play simultaneously.
   sort_by: "first"           # Possible values: "best" and "first".
-  accept_bot: true           # Accepts challenges coming from other bots.
+  accept_bot: false          # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 180         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
@@ -119,5 +119,5 @@ greeting:
     #   {opponent} to insert opponent's name
     #   {me} to insert bot's name
     # Any other words in curly braces will be removed.
-    hello: "Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond to." # Message to send to chat at the start of a game
-    goodbye: "Good game!" # Message to send to chat at the end of a game
+    hello: "Hello {opponent}. Good luck! Type !help for a list of commands I can respond to." # Message to send to chat at the start of a game
+    goodbye: "Good game! Thanks for playing with me!" # Message to send to chat at the end of a game
