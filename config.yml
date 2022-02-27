@@ -3,7 +3,7 @@ url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./engines/"          # Directory containing the engine. This can be an absolute path or one relative to lichess-bot/.
-  name: "stockfish14.1.exe"        # Binary name of the engine to use.
+  name: "vsf"        # Binary name of the engine to use.
   working_dir: ""            # Directory where the chess engine will read and write files. If blank or missing, the current directory is used.
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
@@ -87,14 +87,16 @@ correspondence:
     disconnect_time: 300     # Time before disconnecting from a correspondence game.
     ponder: false            # Ponder in correspondence games the bot is connected to.
 
- concurrency: 1             # Number of games to play simultaneously.
-  sort_by: "first"           # Possible values: "best" and "first".
-  accept_bot: false           # Accepts challenges coming from other bots.
+challenge:                   # Incoming challenges.
+  concurrency: 1             # Number of games to play simultaneously.
+  sort_by: "best"            # Possible values: "best" and "first".
+  accept_bot: false          # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 180         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
   max_base: 315360000        # Maximum amount of base time to accept a challenge. The max is 315360000 (10 years).
   min_base: 0                # Minimum amount of base time to accept a challenge.
+  variants:                  # Chess variants to accept (https://lichess.org/variant).
 #   - standard
     - fromPosition
     - antichess
@@ -119,7 +121,6 @@ greeting:
     # Optional substitution keywords (include curly braces):
     #   {opponent} to insert opponent's name
     #   {me} to insert bot's name
-    #   {variant} to insert variants's name
     # Any other words in curly braces will be removed.
-       hello: "Hello {opponent}. You are playing {variant}, You can type !help for commands!" # Message to send to chat at the start of a game
-       goodbye: "Good game! Thanks for playing with me!" # Message to send to chat at the end of a game
+       hello: "Hello {opponent}, Thanks for playing with me! You can type !help for commands!" # Message to send to chat at the start of a game
+       goodbye: "Good game!" # Message to send to chat at the end of a game
